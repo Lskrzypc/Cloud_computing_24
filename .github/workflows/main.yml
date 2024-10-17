@@ -1,0 +1,60 @@
+name: Cloud_Computing_Project
+
+on:
+  pull_request:
+    branches: [ "main", "dev" ]
+    types: [opened, synchronize]
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check_service:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - uses: yezz123/setup-uv@v4
+      - run: uv --version
+      - name: Install dependencies
+        run: uv sync
+      - name: Build Project
+        run: uv build
+      - name: Running unit tests
+        run: uv run pytest tests/
+
+  build_docker_image:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - uses: yezz123/setup-uv@v4
+      - run: uv sync
+      - name: Build Docker Image
+        run: |
+          echo "Building Docker image after PR merge"
+          # Commandes pour build l'image Docker quand on aura configuré la partie CD
+
+  deploy_service_on_azure:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - uses: yezz123/setup-uv@v4
+      - run: uv sync
+      - name: Deploy Service on Azure
+        run: |
+          echo "Deploying service on Azure after PR merge"
+          # Commandes pour déployer la révision sur Azure
