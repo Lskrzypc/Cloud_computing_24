@@ -42,8 +42,7 @@ jobs:
       - name: Build Docker Image
         run: |
           echo "Building Docker image after PR merge"
-          # Commandes pour build l'image Docker quand on aura configuré la partie CD (stockage des images Docker)
-
+          docker build -t cloud_computing_project .
   deploy_service_on_azure:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
