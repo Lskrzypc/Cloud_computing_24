@@ -72,3 +72,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      ## Maybe we'll have to perform terraform plan and apply here 
+      ## to deploy the infrastructure on the cloud
+      ## I'm not sure about this part, I'll have to check it out if we need infrastructure changes
+      ## when we merge a PR and as well as a result, a new Docker image
