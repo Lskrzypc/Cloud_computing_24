@@ -8,7 +8,3 @@ variable "location" {
   type        = string
 }
 
-variable "subscription_id" {
-  description = "ID de la souscription Azure"
-  type        = string
-}

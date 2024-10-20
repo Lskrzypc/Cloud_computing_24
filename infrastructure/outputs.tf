@@ -20,4 +20,14 @@ output "resource_group_message" {
   value       = module.resource_group.message
 }
 
-# Database creation related outputs
+# Virtual Network related outputs
+
+output "vnet_id" {
+  description = "ID du Virtual Network"
+  value       = module.vnet.vnet_id
+}
+
+output "subnet_id" {
+  description = "ID de la Subnet"
+  value       = module.vnet.subnet_id
+}
