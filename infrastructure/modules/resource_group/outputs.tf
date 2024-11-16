@@ -13,6 +13,6 @@ output "physical_location" {
   value       = azurerm_resource_group.resource_group.location
 }
 
-output "success_message" {
+output "success_message_rg" {
   value = "The resource group has been created successfully. Enjoy!"
 }
