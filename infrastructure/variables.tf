@@ -1,17 +1,19 @@
-# Resource group related variables
-
-variable "rg_name" {
-  description = "Le nom du groupe de ressources"
+# RESOURCE GROUP VARIABLES
+variable "resource_group_name" {
+  description = "Resource group name"
   type        = string
+  default = "Cloud24"
 }
 
-variable "location" {
-  description = "La localisation du groupe de ressources"
+variable "physical_location" {
+  description = "Resource group and modules physical location"
   type        = string
   default     = "France Central"
 }
 
 variable "subscription_id" {
-  description = "ID de la souscription Azure"
+  description = "Your Azure subscription ID. You may find it running 'az login' command"
   type        = string
 }
+
+# VIRTUAL NETWORK VARIABLES

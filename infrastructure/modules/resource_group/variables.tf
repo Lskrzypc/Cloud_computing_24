@@ -1,10 +1,10 @@
-variable "rg_name" {
-  description = "Nom du groupe de ressources"
+variable "resource_group_name" {
+  description = "Resource group name"
   type        = string
 }
 
-variable "location" {
-  description = "Localisation du groupe de ressources"
+variable "physical_location" {
+  description = "Resource group and modules physical location"
   type        = string
 }
 

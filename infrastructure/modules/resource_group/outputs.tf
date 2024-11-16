@@ -1,18 +1,18 @@
-output "rg_name" {
-  description = "Nom du groupe de ressources"
-  value       = azurerm_resource_group.rg.name
+output "resource_group_name" {
+  description = "Resource group name is"
+  value       = azurerm_resource_group.resource_group.name
 }
 
-output "rg_id" {
-  description = "ID du groupe de ressources"
-  value       = azurerm_resource_group.rg.id
+output "resource_group_id" {
+  description = "Resource group ID is :"
+  value       = azurerm_resource_group.resource_group.id
 }
 
-output "location" {
-  description = "Localisation du groupe de ressources"
-  value       = azurerm_resource_group.rg.location
+output "physical_location" {
+  description = "Resource group location is :"
+  value       = azurerm_resource_group.resource_group.location
 }
 
-output "message" {
-  value = "Le groupe de ressources a été crée avec succès"
+output "success_message" {
+  value = "The resource group has been created successfully. Enjoy!"
 }
