@@ -1,46 +1,33 @@
-# Examples API
+# Projet : Cloud computing 
+API written by Fabien HUITELEC and declarative code of infrastructure (Microsoft Azure) using HCL Terraform.
 
-Simple API that returns example records from a database.
+## Working group
+The whole project has been written by four persons. Feel free to explore this repo, ask us questions but please mention us if you want to use a part of our code (CI/CD or terraform module). :
+- Louis SKRZYPCZAK (Software engineer, DevOps @Bopizy)
+- Arthur LAFONT (Cybersecurity consultant @Cintamaya)
+- Mélodie COCHET (Cybersecurity consultant @Orange_Cyberdéfense)
+- Alexandra RENOUVIN--DELECOURT (Cybersecurity student @Junia_ISEN)
 
-## Prerequisites
+## Technologies used
 
-- you need to install [uv](https://docs.astral.sh/uv/guides/install-python/)
-- you must have a PostgreSQL instance available with an `example` table
+- Terraform by HashiCorp `v1.5.7`
+- Python `>=v3.12`
+- FastAPI `>=v0.115.0`
+
+
+## Project structure
+
+The repo has been splitted into several folders :
+- `.github` : contains the CI/CD declaration
+- `examples ` : contains the API written in Python using FastAPI framework
+- `infrastructure` : contains the cloud architecture declarations
+- `test` : contains as the name suggest, unit test for API endpoints 
 
 ## Installation
 
-```shell
-# Install Python in the right version
-uv python install
+### Requirements
 
-# Install dependencies and create virtual env
-uv sync
-```
-
-## Run
-
-```shell
-# Export environment variables to connect to the PostgreSQL database...
-export DATABASE_HOST=
-export DATABASE_PORT=
-export DATABASE_NAME=
-export DATABASE_USER=
-export DATABASE_PASSWORD='' # Use single quotes to avoid shell interpolation with characters like $ or #
-# ...and the storage account
-export STORAGE_ACCOUNT_URL=
-
-# Run the application
-uv run fastapi dev examples/examples.py
-```
-
-## Run tests
-
-```
-uv run pytest tests/
-```
-
-They go on:
-
-- http://localhost:8000/docs
-- http://localhost:8000/
-- http://localhost:8000/examples
+- HashiCorp Terraform `v1.5.7+` : https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+- A working brain
+- Azure CLI `v2.66+` :
+https://learn.microsoft.com/fr-fr/cli/azure/install-azure-cli
