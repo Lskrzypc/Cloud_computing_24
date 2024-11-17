@@ -20,16 +20,16 @@ output "vnet_name" {
   value = module.vnet.vnet_name
 }
 
-output "app_service_subnet_name" {
-  value = module.vnet.app_service_subnet_name
+output "vnet_id" {
+  value = module.vnet.vnet_id
 }
 
-output "database_subnet_name" {
-  value = module.vnet.database_subnet_name
+output "my_subnet_name" {
+  value = module.vnet.my_subnet_name
 }
 
-output "bastion_subnet_name" {
-  value = module.vnet.bastion_subnet_name
+output "my_subnet_id" {
+  value = module.vnet.my_subnet_id
 }
 
 output "success_message_vnet" {
