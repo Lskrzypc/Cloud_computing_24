@@ -18,3 +18,11 @@ module "vnet" {
   my_subnet_name          = var.my_subnet_name
   subnet_address_prefixes = var.subnet_address_prefixes
 }
+
+module "database" {
+  source              = "./modules/database"
+  resource_group_name = module.resource_group.resource_group_name
+  vnet_id             = module.vnet.vnet_id
+  physical_location   = module.resource_group.physical_location
+  my_subnet_id        = module.vnet.my_subnet_id
+}
