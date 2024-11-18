@@ -14,7 +14,7 @@ variable "resource_group_name" {
 variable "physical_location" {
   description = "Resource group and modules physical location"
   type        = string
-  default     = "France Central"
+  default     = "West Europe"
 }
 
 # VIRTUAL NETWORK VARIABLES
