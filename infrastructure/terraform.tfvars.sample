@@ -1,1 +1,6 @@
 subscription_id = ""
+
+# For postgresql_flexible_server.
+# Please make sure the password is strong
+administrator_login = ""
+administrator_password = ""
