@@ -8,13 +8,13 @@ variable "subscription_id" {
 variable "resource_group_name" {
   description = "Resource group name"
   type        = string
-  default     = "Cloud24"
+  default     = "Cloud2024"
 }
 
 variable "physical_location" {
   description = "Resource group and modules physical location"
   type        = string
-  default     = "West Europe"
+  default     = "France Central"
 }
 
 # VIRTUAL NETWORK VARIABLES
