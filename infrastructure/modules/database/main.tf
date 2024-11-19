@@ -1,27 +1,33 @@
 resource "azurerm_private_dns_zone" "my_dns_zone" {
-  name                = "mydnszone.postgres.database.azure.com"
+  name                = var.my_dns_zone_name
   resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "my_dns_zone_link" {
-  name                  = "mydnszonelink"
+  name                  = var.my_dns_zone_link_name
   resource_group_name   = var.resource_group_name
   private_dns_zone_name = azurerm_private_dns_zone.my_dns_zone.name
   virtual_network_id    = var.vnet_id
 
 }
 
-//CI/CD test
-resource "azurerm_postgresql_flexible_server" "example" {
-  name                          = "example-psqlflexibleserver"
+# As the flexible_server name must be unique, we are using a random string to generate it
+resource "random_string" "my_random_server_name" {
+  length  = 32
+  special = false
+  upper   = false # The flexible server name must be lowercase so we are setting upper to false
+}
+
+resource "azurerm_postgresql_flexible_server" "my_postgresql_server" {
+  name                          = "postgresqlflexibleserver${random_string.my_random_server_name.result}" # inject the random string
   resource_group_name           = var.resource_group_name
   location                      = var.physical_location
   version                       = "16"
   delegated_subnet_id           = var.my_subnet_id
   private_dns_zone_id           = azurerm_private_dns_zone.my_dns_zone.id
   public_network_access_enabled = false
-  administrator_login           = "psqladmin"
-  administrator_password        = "H@Sh1CoR3!"
+  administrator_login           = var.administrator_login
+  administrator_password        = var.administrator_password
   zone                          = "1"
 
   storage_mb   = 32768
@@ -31,11 +37,7 @@ resource "azurerm_postgresql_flexible_server" "example" {
   depends_on = [azurerm_private_dns_zone_virtual_network_link.my_dns_zone_link]
 }
 
-resource "azurerm_postgresql_database" "my_db" {
-  name                = "mydatabase"
-  resource_group_name = var.resource_group_name
-  server_name         = azurerm_postgresql_flexible_server.example.name
-  charset             = "UTF8"
-  collation           = "English_United States.1252"
-
+resource "azurerm_postgresql_flexible_server_database" "my_db" {
+  name      = var.postgresql_db_name
+  server_id = azurerm_postgresql_flexible_server.my_postgresql_server.id
 }
