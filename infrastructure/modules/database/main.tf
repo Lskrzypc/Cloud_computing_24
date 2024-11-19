@@ -11,6 +11,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "my_dns_zone_link" {
 
 }
 
+//CI/CD test
 resource "azurerm_postgresql_flexible_server" "example" {
   name                          = "example-psqlflexibleserver"
   resource_group_name           = var.resource_group_name
