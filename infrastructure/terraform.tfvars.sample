@@ -6,6 +6,6 @@ administrator_login = ""
 administrator_password = ""
 
 
-
+# Ask Louis for these values
 docker_registry_password = ""
 docker_registry_username = ""

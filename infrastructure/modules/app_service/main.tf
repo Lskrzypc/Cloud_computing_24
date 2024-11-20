@@ -1,23 +1,23 @@
 resource "azurerm_service_plan" "api_plan" {
-    name = var.service_plan_name
-    resource_group_name = var.resource_group_name
-    location = var.physical_location
-    os_type = "Linux"
-    sku_name = "P1v2"
+  name                = var.service_plan_name
+  resource_group_name = var.resource_group_name
+  location            = var.physical_location
+  os_type             = "Linux"
+  sku_name            = "P1v2"
 }
 
 resource "azurerm_linux_web_app" "app_service" {
-  name                = "webapp"
-  resource_group_name = var.resource_group_name
-  location            = var.physical_location
-  service_plan_id     = azurerm_service_plan.api_plan.id
+  name                          = "webapp"
+  resource_group_name           = var.resource_group_name
+  location                      = var.physical_location
+  service_plan_id               = azurerm_service_plan.api_plan.id
   public_network_access_enabled = true
-  virtual_network_subnet_id = var.my_subnet_id
+  virtual_network_subnet_id     = var.my_subnet_id
 
   site_config {
     application_stack {
-      docker_registry_url = var.docker_registry_url
-      docker_image_name   = var.docker_image
+      docker_registry_url      = var.docker_registry_url
+      docker_image_name        = var.docker_image
       docker_registry_password = var.docker_registry_password
       docker_registry_username = var.docker_registry_username
     }

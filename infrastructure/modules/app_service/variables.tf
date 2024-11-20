@@ -4,34 +4,39 @@ variable "resource_group_name" {
 }
 
 variable "service_plan_name" {
-  description = "name of service plan"
+  description = "Name of service plan"
   type        = string
 }
 
 variable "physical_location" {
-  description = "physical loc"
+  description = "Physical location"
   type        = string
 
 }
 
 variable "my_subnet_id" {
-  description = "the subnet id"
+  description = "The subnet id"
   type        = string
 }
 
 variable "docker_registry_password" {
+  description = "The Docker registry password"
   type = string
+  sensitive = true
 }
 
 variable "docker_image" {
+  description = "The Docker image"
   type = string
 
 }
 variable "docker_registry_url" {
+  description = "The Docker registry URL"
   type = string
 
 }
 variable "docker_registry_username" {
+  description = "The Docker registry username"
   type = string
-
+  sensitive = true
 }
