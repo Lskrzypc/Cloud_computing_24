@@ -66,7 +66,7 @@ variable "subnet_address_prefixes" {
 ################################################################################################
 
 variable "my_dns_zone_name" {
-  description = "Yoyr private DNS zone name. Must be a valid domain name"
+  description = "Your private DNS zone name. Must be a valid domain name"
   type        = string
   default     = "mydnszone.postgres.database.azure.com"
 }
@@ -94,4 +94,42 @@ variable "postgresql_db_name" {
   type        = string
   default     = "mypostgresdb"
 
+<<<<<<< HEAD
+=======
+}
+
+################################################################################################
+#                                                                                              #
+#                                     APP_SERVICE VARIABLES                                    #
+#                                                                                              #
+################################################################################################
+
+variable "service_plan_name" {
+  description = "Name of service plan"
+  type = string
+  default = "my_service_plan"
+}
+
+variable "docker_registry_password" {
+  description = "Docker password"
+  type = string  
+}
+
+variable "docker_image" {
+  description = "Image"
+  type = string
+  default = "ghcr.io/lskrzypc/cloud_computing_24:latest"
+}
+
+variable "docker_registry_username" {
+  description = "Docker username"
+  type = string  
+}
+
+//louis tu sais
+variable "docker_registry_url" {
+  description = "Docker url"
+  type = string
+  default = "https://ghcr.io/lskrzypc/cloud_computing_24"
+>>>>>>> 228c498 (feat:adding app_service)
 }
