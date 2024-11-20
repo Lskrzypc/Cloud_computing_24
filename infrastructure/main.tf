@@ -38,3 +38,16 @@ module "blob_storage" {
   physical_location   = module.resource_group.physical_location
 
 }
+
+
+module "app_service" {
+  source = "./modules/app_service"
+  resource_group_name = module.resource_group.resource_group_name
+  physical_location = module.resource_group.physical_location
+  docker_image = var.docker_image
+  docker_registry_password = var.docker_registry_password
+  docker_registry_username = var.docker_registry_username
+  docker_registry_url = var.docker_registry_url
+  my_subnet_id = module.vnet.my_subnet_id
+  service_plan_name = var.service_plan_name
+}

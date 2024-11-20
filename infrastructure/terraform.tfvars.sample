@@ -4,3 +4,8 @@ subscription_id = ""
 # Please make sure the password is strong
 administrator_login = ""
 administrator_password = ""
+
+
+
+docker_registry_password = ""
+docker_registry_username = ""
