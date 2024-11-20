@@ -26,3 +26,9 @@ module "database" {
   physical_location   = module.resource_group.physical_location
   my_subnet_id        = module.vnet.my_subnet_id
 }
+
+module "blob_storage" {
+  source = "./modules/blob_storage"
+  resource_group_name = module.resource_group.resource_group_name
+  physical_location = module.resource_group.physical_location
+}

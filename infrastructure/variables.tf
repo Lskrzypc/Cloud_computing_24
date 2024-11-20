@@ -41,3 +41,14 @@ variable "subnet_address_prefixes" {
   type        = list(string)
   default     = ["10.0.1.0/24"]
 }
+
+# BLOB VARIABLES
+variable "storage_account_name" {
+  description = "The name of the storage account"
+  type = string
+}
+
+variable "storage_container_name" {
+  description = "The name of the container"
+  type = string
+}
