@@ -43,3 +43,4 @@ The aim of this project is to put into practice the concepts seen during the few
 To find out more about the technical constraints and the project requirements, please follow this link: https://malachite-typhoon-29c.notion.site/Cloud-Computing-nonc-projet-11e0466cf1e080c9b271da46c5c20723
 
 The architecture of our proposition could be resumed in an image, which follows :
+![Architecture scheme](./images/architecture_scheme.png)
