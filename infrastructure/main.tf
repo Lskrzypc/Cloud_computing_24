@@ -31,3 +31,10 @@ module "database" {
   administrator_password = var.administrator_password
   postgresql_db_name     = var.postgresql_db_name
 }
+
+module "blob_storage" {
+  source              = "./modules/blob_storage"
+  resource_group_name = module.resource_group.resource_group_name
+  physical_location   = module.resource_group.physical_location
+
+}

@@ -35,3 +35,14 @@ output "my_subnet_id" {
 output "success_message_vnet" {
   value = module.vnet.success_message_vnet
 }
+
+# BLOB OUTPUTS
+output "storage_container_name" {
+  description = "The name of the container"
+  value = module.blob_storage.storage_container_name
+}
+
+output "storage_blob_name" {
+  description = "The name of the blob storage"
+  value = module.blob_storage.storage_blob_name
+}
