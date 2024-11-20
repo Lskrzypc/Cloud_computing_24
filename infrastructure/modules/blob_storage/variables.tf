@@ -7,13 +7,3 @@ variable "physical_location" {
   description = "The physical location of the database server."
   type        = string
 }
-
-variable "storage_account_name" {
-  description = "The name of the storage account"
-  type = string
-}
-
-variable "storage_container_name" {
-  description = "The name of the container"
-  type = string
-}

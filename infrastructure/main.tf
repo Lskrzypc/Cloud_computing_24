@@ -28,9 +28,8 @@ module "database" {
 }
 
 module "blob_storage" {
-  source = "./modules/blob_storage"
+  source              = "./modules/blob_storage"
   resource_group_name = module.resource_group.resource_group_name
-  physical_location = module.resource_group.physical_location
-  storage_account_name = module.blob_storage.storage_account_name
-  storage_container_name = module.blob_storage.storage_container_name
+  physical_location   = module.resource_group.physical_location
+
 }
