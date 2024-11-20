@@ -1,11 +1,11 @@
-resource "random_string" "my_random_blob_storage_name" {
+resource "random_string" "my_random_storage_name" {
   length = 32
   special = false
   upper = false 
 }
 
 resource "azurerm_storage_account" "storage_account" {
-  name                     = "examplestoracc"
+  name                     = "examplestoracc${random_string.my_random_storage_name.result}"
   resource_group_name      = var.resource_group_name
   location                 = var.physical_location
   account_tier             = "Standard"
@@ -13,14 +13,14 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_container" "storage_container" {
-  name                  = "content"
-  storage_account_name  = var.storage_account_name
+  name                  = "content${random_string.my_random_storage_name.result}"
+  storage_account_name  = azurerm_storage_account.storage_account.name
   container_access_type = "private"
 }
 
 resource "azurerm_storage_blob" "blob_storage" {
-  name                   = "my-awesome-content${random_string.my_random_blob_storage_name.result}.zip"
-  storage_account_name   = var.storage_account_name
-  storage_container_name = var.storage_container_name
+  name                   = "my-awesome-content${random_string.my_random_storage_name.result}.zip"
+  storage_account_name   = azurerm_storage_account.storage_account.name
+  storage_container_name = azurerm_storage_container.storage_container.name
   type                   = "Block"
 }
