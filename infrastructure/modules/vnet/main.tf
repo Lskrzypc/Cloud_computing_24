@@ -5,8 +5,8 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = var.vnet_address_space
 }
 
-resource "azurerm_subnet" "my_subnet" {
-  name                 = var.my_subnet_name
+resource "azurerm_subnet" "database_subnet" {
+  name                 = var.database_subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.subnet_address_prefixes
@@ -17,6 +17,22 @@ resource "azurerm_subnet" "my_subnet" {
       name = "Microsoft.DBforPostgreSQL/flexibleServers"
       actions = [
         "Microsoft.Network/virtualNetworks/subnets/join/action",
+      ]
+    }
+  }
+}
+
+resource "azurerm_subnet" "app_subnet" {
+  name                 = var.app_subnet_name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.app_subnet_address_prefixes
+  delegation {
+    name = "appServiceDelegation"
+    service_delegation {
+      name = "Microsoft.Web/serverFarms"
+      actions = [
+        "Microsoft.Network/virtualNetworks/subnets/action",
       ]
     }
   }

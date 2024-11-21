@@ -18,12 +18,22 @@ variable "vnet_address_space" {
   type        = list(string)
 }
 
-variable "my_subnet_name" {
+variable "database_subnet_name" {
   description = "Subnet name"
   type        = string
 }
 
 variable "subnet_address_prefixes" {
   description = "Subnet address prefixes"
+  type        = list(string)
+}
+
+variable "app_subnet_name" {
+  description = "App subnet name"
+  type        = string
+}
+
+variable "app_subnet_address_prefixes" {
+  description = "App subnet address prefixes"
   type        = list(string)
 }

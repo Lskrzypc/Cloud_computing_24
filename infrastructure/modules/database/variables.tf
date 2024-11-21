@@ -3,7 +3,7 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "my_subnet_id" {
+variable "database_subnet_id" {
   description = "The ID of the virtual network to which the DNS zone will be linked."
   type        = string
 }

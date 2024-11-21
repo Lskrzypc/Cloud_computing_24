@@ -24,12 +24,16 @@ output "vnet_id" {
   value = module.vnet.vnet_id
 }
 
-output "my_subnet_name" {
-  value = module.vnet.my_subnet_name
+output "database_subnet_name" {
+  value = module.vnet.database_subnet_name
 }
 
-output "my_subnet_id" {
-  value = module.vnet.my_subnet_id
+output "database_subnet_id" {
+  value = module.vnet.database_subnet_id
+}
+
+output "app_subnet_id" {
+  value = module.vnet.app_subnet_id
 }
 
 output "success_message_vnet" {
@@ -39,10 +43,10 @@ output "success_message_vnet" {
 # BLOB OUTPUTS
 output "storage_container_name" {
   description = "The name of the container"
-  value = module.blob_storage.storage_container_name
+  value       = module.blob_storage.storage_container_name
 }
 
 output "storage_blob_name" {
   description = "The name of the blob storage"
-  value = module.blob_storage.storage_blob_name
+  value       = module.blob_storage.storage_blob_name
 }
