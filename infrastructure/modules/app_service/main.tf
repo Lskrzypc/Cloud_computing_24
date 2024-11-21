@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "api_plan" {
 }
 
 resource "azurerm_linux_web_app" "app_service" {
-  name                          = "webappaiueyhaoisk13dolq"
+  name                          = var.app_service_name
   resource_group_name           = var.resource_group_name
   location                      = var.physical_location
   service_plan_id               = azurerm_service_plan.api_plan.id

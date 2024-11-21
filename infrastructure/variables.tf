@@ -52,7 +52,7 @@ variable "database_subnet_name" {
   default     = "database-subnet"
 }
 
-variable "subnet_address_prefixes" {
+variable "database_subnet_address_prefixes" {
   description = "The subnet address space"
   type        = list(string)
   default     = ["10.0.1.0/24"]
@@ -140,4 +140,11 @@ variable "docker_registry_url" {
   description = "Docker url"
   type        = string
   default     = "https://ghcr.io"
+}
+
+variable "app_service_name" {
+  description = "App service name"
+  type        = string
+  default     = "cloudcomputing24api"
+
 }
