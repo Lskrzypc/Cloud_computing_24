@@ -40,3 +40,8 @@ variable "docker_registry_username" {
   type        = string
   sensitive   = true
 }
+
+variable "app_service_name" {
+  description = "The name of the app service"
+  type        = string
+}

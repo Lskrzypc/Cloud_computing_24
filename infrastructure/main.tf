@@ -10,13 +10,15 @@ module "resource_group" {
 }
 
 module "vnet" {
-  source                      = "./modules/vnet"
-  resource_group_name         = module.resource_group.resource_group_name
-  physical_location           = module.resource_group.physical_location
-  vnet_name                   = var.vnet_name
-  vnet_address_space          = var.vnet_address_space
-  database_subnet_name        = var.database_subnet_name
-  subnet_address_prefixes     = var.subnet_address_prefixes
+  source              = "./modules/vnet"
+  resource_group_name = module.resource_group.resource_group_name
+  physical_location   = module.resource_group.physical_location
+  vnet_name           = var.vnet_name
+  vnet_address_space  = var.vnet_address_space
+  # Database subnet
+  database_subnet_name             = var.database_subnet_name
+  database_subnet_address_prefixes = var.database_subnet_address_prefixes
+  # Api subnet
   app_subnet_name             = var.app_subnet_name
   app_subnet_address_prefixes = var.app_subnet_address_prefixes
 }
@@ -38,12 +40,12 @@ module "blob_storage" {
   source              = "./modules/blob_storage"
   resource_group_name = module.resource_group.resource_group_name
   physical_location   = module.resource_group.physical_location
-
 }
 
 
 module "app_service" {
   source                   = "./modules/app_service"
+  app_service_name         = var.app_service_name
   resource_group_name      = module.resource_group.resource_group_name
   physical_location        = module.resource_group.physical_location
   docker_image             = var.docker_image

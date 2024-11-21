@@ -23,7 +23,7 @@ variable "database_subnet_name" {
   type        = string
 }
 
-variable "subnet_address_prefixes" {
+variable "database_subnet_address_prefixes" {
   description = "Subnet address prefixes"
   type        = list(string)
 }
