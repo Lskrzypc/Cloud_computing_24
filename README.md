@@ -44,7 +44,8 @@ https://learn.microsoft.com/fr-fr/cli/azure/install-azure-cli
 - Still in `./infrastructure` folder, run in this order `terraform init`, `terraform plan` and finally `terraform apply` to provision the cloud infrastructure 
 
 ## Motivation and architecture
-The aim of this project is to put into practice the concepts seen during the few weeks of the @Junia_ISEN cloud computing course. To do this, we need to design an architecture and provision the infrastructure on Microsoft Azure. To do this, a simplistic API will be deployed, along with a postgresql database and file storage. 
+The aim of this project is to put into practice the concepts seen during the few weeks of the @Junia_ISEN cloud computing course. To do this, we need to design an architecture and provision the infrastructure on Microsoft Azure. To do this, a simplistic API will be deployed, along with a postgresql database and file storage. It demonstrates the practical application of modern cloud technologies to meet technical requirements.
+
 To find out more about the technical constraints and the project requirements, please follow this link: https://malachite-typhoon-29c.notion.site/Cloud-Computing-nonc-projet-11e0466cf1e080c9b271da46c5c20723
 
 The architecture of our proposition could be resumed in an image, which follows :
