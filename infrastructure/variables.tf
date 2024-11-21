@@ -46,10 +46,10 @@ variable "vnet_address_space" {
   default     = ["10.0.0.0/16"]
 }
 
-variable "my_subnet_name" {
+variable "database_subnet_name" {
   description = "The name you want to give to the subnet"
   type        = string
-  default     = "app-service-subnet"
+  default     = "database-subnet"
 }
 
 variable "subnet_address_prefixes" {
@@ -58,6 +58,17 @@ variable "subnet_address_prefixes" {
   default     = ["10.0.1.0/24"]
 }
 
+variable "app_subnet_name" {
+  description = "App subnet name"
+  type        = string
+  default     = "app-subnet"
+}
+
+variable "app_subnet_address_prefixes" {
+  description = "App subnet address prefixes"
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+}
 
 ################################################################################################
 #                                                                                              #
@@ -94,8 +105,6 @@ variable "postgresql_db_name" {
   type        = string
   default     = "mypostgresdb"
 
-<<<<<<< HEAD
-=======
 }
 
 ################################################################################################
@@ -106,30 +115,29 @@ variable "postgresql_db_name" {
 
 variable "service_plan_name" {
   description = "Name of service plan"
-  type = string
-  default = "my_service_plan"
+  type        = string
+  default     = "my_service_plan"
 }
 
 variable "docker_registry_password" {
   description = "Docker password"
-  type = string  
+  type        = string
 }
 
 variable "docker_image" {
   description = "Image"
-  type = string
-  default = "ghcr.io/lskrzypc/cloud_computing_24:latest"
+  type        = string
+  default     = "ghcr.io/lskrzypc/cloud_computing_24:latest"
 }
 
 variable "docker_registry_username" {
   description = "Docker username"
-  type = string  
+  type        = string
+  default     = "Lskrzypc"
 }
 
-//louis tu sais
 variable "docker_registry_url" {
   description = "Docker url"
-  type = string
-  default = "https://ghcr.io/lskrzypc/cloud_computing_24"
->>>>>>> 228c498 (feat:adding app_service)
+  type        = string
+  default     = "https://ghcr.io"
 }

@@ -8,16 +8,26 @@ output "vnet_id" {
   value       = azurerm_virtual_network.vnet.id
 }
 
-output "my_subnet_name" {
+output "database_subnet_name" {
   description = "Subnet name"
-  value       = azurerm_subnet.my_subnet.name
+  value       = azurerm_subnet.database_subnet.name
 }
 
-output "my_subnet_id" {
+output "database_subnet_id" {
   description = "Subnet ID"
-  value       = azurerm_subnet.my_subnet.id
+  value       = azurerm_subnet.database_subnet.id
 }
 
 output "success_message_vnet" {
   value = "The virtual network and subnetworks has been created successfully"
+}
+
+output "app_subnet_id" {
+  description = "App subnet ID"
+  value       = azurerm_subnet.app_subnet.id
+}
+
+output "app_subnet_name" {
+  description = "App subnet name"
+  value       = azurerm_subnet.app_subnet.name
 }

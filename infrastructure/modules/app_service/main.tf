@@ -3,16 +3,16 @@ resource "azurerm_service_plan" "api_plan" {
   resource_group_name = var.resource_group_name
   location            = var.physical_location
   os_type             = "Linux"
-  sku_name            = "P1v2"
+  sku_name            = "B1"
 }
 
 resource "azurerm_linux_web_app" "app_service" {
-  name                          = "webapp"
+  name                          = "webappaiueyhaoisk13dolq"
   resource_group_name           = var.resource_group_name
   location                      = var.physical_location
   service_plan_id               = azurerm_service_plan.api_plan.id
   public_network_access_enabled = true
-  virtual_network_subnet_id     = var.my_subnet_id
+  virtual_network_subnet_id     = var.app_subnet_id
 
   site_config {
     application_stack {

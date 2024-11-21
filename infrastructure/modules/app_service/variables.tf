@@ -14,29 +14,29 @@ variable "physical_location" {
 
 }
 
-variable "my_subnet_id" {
+variable "app_subnet_id" {
   description = "The subnet id"
   type        = string
 }
 
 variable "docker_registry_password" {
   description = "The Docker registry password"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "docker_image" {
   description = "The Docker image"
-  type = string
+  type        = string
 
 }
 variable "docker_registry_url" {
   description = "The Docker registry URL"
-  type = string
+  type        = string
 
 }
 variable "docker_registry_username" {
   description = "The Docker registry username"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
