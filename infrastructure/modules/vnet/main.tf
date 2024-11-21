@@ -37,3 +37,4 @@ resource "azurerm_subnet" "app_subnet" {
     }
   }
 }
+
