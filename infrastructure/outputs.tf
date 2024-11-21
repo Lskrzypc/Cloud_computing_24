@@ -50,3 +50,26 @@ output "storage_blob_name" {
   description = "The name of the blob storage"
   value       = module.blob_storage.storage_blob_name
 }
+
+# DATABASE OUTPUTS
+output "postgresql_host" {
+  value = module.database.postgresql_host
+}
+
+output "postgresql_port" {
+  value = 5432
+}
+
+output "postgresql_db_name" {
+  value = module.database.postgresql_db_name
+}
+
+output "postgresql_administrator_login" {
+  value     = module.database.postgresql_administrator_login
+  sensitive = true
+}
+
+output "postgresql_administrator_password" {
+  value     = var.administrator_password
+  sensitive = true
+}

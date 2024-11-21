@@ -25,12 +25,11 @@ resource "azurerm_linux_web_app" "app_service" {
 
 
   app_settings = {
-    DATABASE_HOST     = "postgresqlflexibleserveriy14be4sr0rjrs6p0ehm409sr476sdoa.postgres.database.azure.com"
-    DATABASE_PORT     = "5432"
-    DATABASE_NAME     = "postgres"
-    DATABASE_USER     = "postgresqladmin"
-    DATABASE_PASSWORD = "testPassword2024#"
-
+    DATABASE_HOST     = var.database_host
+    DATABASE_PORT     = var.database_port
+    DATABASE_NAME     = var.database_name
+    DATABASE_USER     = var.database_user
+    DATABASE_PASSWORD = var.database_password
   }
 
   identity {
