@@ -44,14 +44,23 @@ module "blob_storage" {
 
 
 module "app_service" {
-  source                   = "./modules/app_service"
-  app_service_name         = var.app_service_name
-  resource_group_name      = module.resource_group.resource_group_name
-  physical_location        = module.resource_group.physical_location
+  source              = "./modules/app_service"
+  app_service_name    = var.app_service_name
+  resource_group_name = module.resource_group.resource_group_name
+  physical_location   = module.resource_group.physical_location
+  # Docker vars using GHCR (GitHub Container Registry)
   docker_image             = var.docker_image
   docker_registry_username = var.docker_registry_username
   docker_registry_password = var.docker_registry_password
   docker_registry_url      = var.docker_registry_url
-  app_subnet_id            = module.vnet.app_subnet_id
-  service_plan_name        = var.service_plan_name
+  # API subnet
+  app_subnet_id     = module.vnet.app_subnet_id
+  service_plan_name = var.service_plan_name
+
+  # Database environment variables
+  database_host     = module.database.postgresql_host
+  database_port     = module.database.postgresql_port
+  database_name     = module.database.postgresql_db_name
+  database_user     = var.administrator_login
+  database_password = var.administrator_password
 }
