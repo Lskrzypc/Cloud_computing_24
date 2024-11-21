@@ -1,12 +1,17 @@
 # Projet : Cloud computing 
 API written by Fabien HUITELEC and declarative code of infrastructure (Microsoft Azure) using HCL Terraform.
 
+## Project Description
+This project involves provisioning a cloud infrastructure on Microsoft Azure and deploying a Python-based API using the FastAPI framework. Additionally, it includes a CI/CD pipeline configured with GitHub Actions for automated testing, building, and deployment.
+
 ## Working group
-The whole project has been written by four persons. Feel free to explore this repo, ask us questions but please mention us if you want to use a part of our code (CI/CD or terraform module). :
+The whole project has been developped by four contributors :
 - Louis SKRZYPCZAK (Software engineer, DevOps @Bopizy)
 - Arthur LAFONT (Cybersecurity consultant @Cintamaya)
-- Mélodie COCHET (Cybersecurity consultant @Orange_Cyberdéfense)
+- Mélodie COCHET (Cybersecurity consultant @Orange_Cyberdefense)
 - Alexandra RENOUVIN--DELECOURT (Cybersecurity student @Junia_ISEN)
+
+Feel free to explore this repository and reach out with any questions. If you wish to use any part of our code (CI/CD workflows or Terraform modules), please ensure to mention us appropriately.
 
 ## Technologies used
 
@@ -17,7 +22,7 @@ The whole project has been written by four persons. Feel free to explore this re
 
 ## Project structure
 
-The repo has been splitted into several folders :
+The repository is organized into the following directories :
 - `.github` : contains the CI/CD declaration
 - `examples ` : contains the API written in Python using FastAPI framework
 - `infrastructure` : contains the cloud architecture declarations
