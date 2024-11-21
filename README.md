@@ -1,12 +1,17 @@
 # Projet : Cloud computing 
 API written by Fabien HUITELEC and declarative code of infrastructure (Microsoft Azure) using HCL Terraform.
 
+## Project Description
+This project involves provisioning a cloud infrastructure on Microsoft Azure and deploying a Python-based API using the FastAPI framework. Additionally, it includes a CI/CD pipeline configured with GitHub Actions for automated testing, building, and deployment.
+
 ## Working group
-The whole project has been written by four persons. Feel free to explore this repo, ask us questions but please mention us if you want to use a part of our code (CI/CD or terraform module). :
+The whole project has been developped by four contributors :
 - Louis SKRZYPCZAK (Software engineer, DevOps @Bopizy)
 - Arthur LAFONT (Cybersecurity consultant @Cintamaya)
-- Mélodie COCHET (Cybersecurity consultant @Orange_Cyberdéfense)
+- Mélodie COCHET (Cybersecurity consultant @Orange_Cyberdefense)
 - Alexandra RENOUVIN--DELECOURT (Cybersecurity student @Junia_ISEN)
+
+Feel free to explore this repository and reach out with any questions. If you wish to use any part of our code (CI/CD workflows or Terraform modules), please ensure to mention us appropriately.
 
 ## Technologies used
 
@@ -17,7 +22,7 @@ The whole project has been written by four persons. Feel free to explore this re
 
 ## Project structure
 
-The repo has been splitted into several folders :
+The repository is organized into the following directories :
 - `.github` : contains the CI/CD declaration
 - `examples ` : contains the API written in Python using FastAPI framework
 - `infrastructure` : contains the cloud architecture declarations
@@ -39,7 +44,8 @@ https://learn.microsoft.com/fr-fr/cli/azure/install-azure-cli
 - Still in `./infrastructure` folder, run in this order `terraform init`, `terraform plan` and finally `terraform apply` to provision the cloud infrastructure 
 
 ## Motivation and architecture
-The aim of this project is to put into practice the concepts seen during the few weeks of the @Junia_ISEN cloud computing course. To do this, we need to design an architecture and provision the infrastructure on Microsoft Azure. To do this, a simplistic API will be deployed, along with a postgresql database and file storage. 
+The aim of this project is to put into practice the concepts seen during the few weeks of the @Junia_ISEN cloud computing course. To do this, we need to design an architecture and provision the infrastructure on Microsoft Azure. To do this, a simplistic API will be deployed, along with a postgresql database and file storage. It demonstrates the practical application of modern cloud technologies to meet technical requirements.
+
 To find out more about the technical constraints and the project requirements, please follow this link: https://malachite-typhoon-29c.notion.site/Cloud-Computing-nonc-projet-11e0466cf1e080c9b271da46c5c20723
 
 The architecture of our proposition could be resumed in an image, which follows :
