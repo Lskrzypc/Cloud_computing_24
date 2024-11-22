@@ -63,4 +63,7 @@ module "app_service" {
   database_name     = module.database.postgresql_db_name
   database_user     = var.administrator_login
   database_password = var.administrator_password
+
+  # Blob storage environment variables
+  storage_url = module.blob_storage.storage_url
 }
