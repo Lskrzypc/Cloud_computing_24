@@ -70,6 +70,18 @@ variable "app_subnet_address_prefixes" {
   default     = ["10.0.2.0/24"]
 }
 
+variable "gateway_subnet_name" {
+  description = "Gateway subnet name"
+  type        = string
+  default     = "gateway-subnet"
+}
+
+variable "gateway_subnet_address_prefixes" {
+  description = "Gateway subnet address prefixes"
+  type        = list(string)
+  default     = ["10.0.3.0/24"]
+}
+
 ################################################################################################
 #                                                                                              #
 #                                     DATABASE VARIABLES                                       #
@@ -147,4 +159,12 @@ variable "app_service_name" {
   type        = string
   default     = "cloudcomputing24api"
 
+}
+
+#APP GATEWAY VARIABLES
+
+variable "public_ip_name" {
+  description = "Public IP name"
+  type        = string
+  default     = "ipcloudcomputing24"
 }

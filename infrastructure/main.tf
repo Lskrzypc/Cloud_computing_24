@@ -21,6 +21,9 @@ module "vnet" {
   # Api subnet
   app_subnet_name             = var.app_subnet_name
   app_subnet_address_prefixes = var.app_subnet_address_prefixes
+  # Gateway subnet
+  gateway_subnet_name             = var.gateway_subnet_name
+  gateway_subnet_address_prefixes = var.gateway_subnet_address_prefixes
 }
 
 module "database" {
@@ -67,4 +70,15 @@ module "app_service" {
   # Blob storage environment variables
   storage_url        = module.blob_storage.storage_url
   storage_account_id = module.blob_storage.storage_account_id
+}
+
+module "api_gateway" {
+  source              = "./modules/application_gateway"
+  resource_group_name = module.resource_group.resource_group_name
+  physical_location   = module.resource_group.physical_location
+  public_ip_name      = var.public_ip_name
+  vnet_name           = module.vnet.vnet_name
+  gateway_subnet_id   = module.vnet.gateway_subnet_id
+  gateway_subnet_name = module.vnet.gateway_subnet_name
+
 }
