@@ -19,8 +19,9 @@ resource "azurerm_storage_container" "storage_container" {
 }
 
 resource "azurerm_storage_blob" "blob_storage" {
-  name = "aaa.json"
+  name = "quotes.json"
   # Get the quotes.json file from the modules/storage directory and upload it to the storage account
+  source                 = "${path.module}/quotes.json"
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = azurerm_storage_container.storage_container.name
   type                   = "Block"
