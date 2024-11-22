@@ -1,3 +1,4 @@
+# Your subscription_id goes here
 subscription_id = ""
 
 # For postgresql_flexible_server.
@@ -6,6 +7,6 @@ administrator_login = ""
 administrator_password = ""
 
 
-# Ask Louis for these values
+# Username is your Github username, password should be a token generated on Github
 docker_registry_password = ""
 docker_registry_username = ""

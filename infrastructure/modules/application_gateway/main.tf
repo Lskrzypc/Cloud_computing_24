@@ -15,11 +15,8 @@ locals {
   redirect_configuration_name    = "${var.vnet_name}-rdrcfg"
 }
 
-
-
-
 resource "azurerm_application_gateway" "gateway" {
-  name                = "cloudcomputingappgateway"
+  name                = var.application_gateway_name
   resource_group_name = var.resource_group_name
   location            = var.physical_location
   sku {
@@ -46,7 +43,7 @@ resource "azurerm_application_gateway" "gateway" {
   backend_address_pool {
     name = local.backend_address_pool_name
     fqdns = [
-      "cloudcomputing24api.azurewebsites.net"
+      var.app_service_fqdn
     ]
 
   }

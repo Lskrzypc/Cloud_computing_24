@@ -23,18 +23,15 @@ resource "azurerm_linux_web_app" "app_service" {
     }
   }
 
-
   app_settings = {
-
+    # Database environment variables
     DATABASE_HOST     = var.database_host
     DATABASE_PORT     = var.database_port
     DATABASE_NAME     = var.database_name
     DATABASE_USER     = var.database_user
     DATABASE_PASSWORD = var.database_password
-
+    # Storage environment variables
     STORAGE_ACCOUNT_URL = var.storage_url
-
-
   }
 
   identity {
@@ -42,6 +39,7 @@ resource "azurerm_linux_web_app" "app_service" {
   }
 }
 
+# Grant the app service access to the storage account
 resource "azurerm_role_assignment" "app_service_storage_access" {
   principal_id         = azurerm_linux_web_app.app_service.identity[0].principal_id
   role_definition_name = "Storage Blob Data Contributor"

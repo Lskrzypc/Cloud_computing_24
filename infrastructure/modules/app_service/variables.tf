@@ -26,10 +26,10 @@ variable "docker_registry_password" {
 }
 
 variable "docker_image" {
-  description = "The Docker image"
+  description = "The Docker image. Should always be latest"
   type        = string
-
 }
+
 variable "docker_registry_url" {
   description = "The Docker registry URL"
   type        = string
