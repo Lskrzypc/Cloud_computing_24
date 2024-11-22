@@ -59,7 +59,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           ## Raw value latest is used to get the latest docker image
-          ## Although we also sha to ensure that the image is unique (and that we don't overwrite the latest image)
+          ## Although we also sha to ensure that the image is unique (and that we don't overwrite the latest image)
           tags: |
             type=ref,event=branch
             type=sha
@@ -73,7 +73,42 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      ## Maybe we'll have to perform terraform plan and apply here 
-      ## to deploy the infrastructure on the cloud
-      ## I'm not sure about this part, I'll have to check it out if we need infrastructure changes
-      ## when we merge a PR and as well as a result, a new Docker image
+  # Impossible to deploy infrastructure as I don't have access to Azure app registration portal.concurrency: 
+  # Here is the error message when trying to create CLIENT_ID, CLIENT_SECRET : Your administrator has disabled the App registrations experience in the Azure portal.
+
+  # So I will just comment the code below, but it should work if you have access to the Azure app registration portal and then add secrets to Github repo
+
+
+  ########################################################################################
+  # NOTE THAT THIS CODE BELOW HAS BEEN PROVIDED KINDLY BY PAUL MARLIOT AND HIS TEAMMATES #
+  ########################################################################################
+
+
+  # deploy_infrastructure:
+  #   needs: build_docker_image
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
+
+  #     - name: Setup Terraform
+  #       uses: hashicorp/setup-terraform@v2
+  #       with:
+  #         terraform_version: 1.5.5
+
+  #     - name: Navigate to infrastructure folder
+  #       run: cd infrastructure
+
+  #     - name: Initialize Terraform
+  #       run: terraform init
+
+  #     - name: Validate Terraform
+  #       run: terraform validate
+
+  #     - name: Apply Terraform
+  #       env:
+  #         ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  #         ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+  #         ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  #         ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+  #       run: terraform apply -auto-approve
