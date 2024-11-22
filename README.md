@@ -50,3 +50,8 @@ To find out more about the technical constraints and the project requirements, p
 
 The architecture of our proposition could be resumed in an image, which follows :
 ![Architecture scheme](./images/architecture_scheme.png)
+
+## Known Issues
+- A problem affects continuous application deployment (CD). To authorize the CI/CD to carry out deployment, we need certain keys which, as things stand with our Azure for students accounts we are unable to obtain: `CLIENT_ID` and `CLIENT_SECRET`. This is why the deployment part of the CI/CD is commented out in the main.yml file.
+- A problem affects the `/examples` route of the API. Even if the database has been provisioned via Terraform, the route returns a 500 error because the database tables have not been created. As a result, the API, even if it contacts the database, cannot, with its query, make a select on the examples table.
+- API gateway, even though it should work at the time, do not seems to redirect trafic to API. As a result, we were constraint to open public access to our API (although API is in a virtual network)
