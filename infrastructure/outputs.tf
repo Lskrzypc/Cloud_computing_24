@@ -73,3 +73,12 @@ output "postgresql_administrator_password" {
   value     = var.administrator_password
   sensitive = true
 }
+
+
+# APP SERVICE OUTPUTS
+
+# Blob storage Output
+output "storage_url" {
+  description = "The URL of the blob storage"
+  value       = module.blob_storage.storage_url
+}

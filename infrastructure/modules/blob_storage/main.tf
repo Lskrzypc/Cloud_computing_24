@@ -13,13 +13,14 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_container" "storage_container" {
-  name                  = "content${random_string.my_random_storage_name.result}"
+  name                  = "api"
   storage_account_name  = azurerm_storage_account.storage_account.name
-  container_access_type = "private"
+  container_access_type = "container"
 }
 
 resource "azurerm_storage_blob" "blob_storage" {
-  name                   = "my-awesome-content${random_string.my_random_storage_name.result}.zip"
+  name = "aaa.json"
+  # Get the quotes.json file from the modules/storage directory and upload it to the storage account
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = azurerm_storage_container.storage_container.name
   type                   = "Block"

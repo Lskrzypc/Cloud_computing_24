@@ -71,3 +71,8 @@ variable "database_password" {
   type        = string
   sensitive   = true
 }
+
+variable "storage_url" {
+  description = "The blob storage URL"
+  type        = string
+}

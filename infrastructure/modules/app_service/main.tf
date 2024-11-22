@@ -25,11 +25,16 @@ resource "azurerm_linux_web_app" "app_service" {
 
 
   app_settings = {
+
     DATABASE_HOST     = var.database_host
     DATABASE_PORT     = var.database_port
     DATABASE_NAME     = var.database_name
     DATABASE_USER     = var.database_user
     DATABASE_PASSWORD = var.database_password
+
+    STORAGE_ACCOUNT_URL = var.storage_url
+
+
   }
 
   identity {
