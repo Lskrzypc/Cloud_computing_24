@@ -31,3 +31,13 @@ output "app_subnet_name" {
   description = "App subnet name"
   value       = azurerm_subnet.app_subnet.name
 }
+
+output "gateway_subnet_id" {
+  description = "Gateway subnet ID"
+  value       = azurerm_subnet.gateway_subnet.id
+}
+
+output "gateway_subnet_name" {
+  description = "Gateway subnet name"
+  value       = azurerm_subnet.gateway_subnet.name
+}

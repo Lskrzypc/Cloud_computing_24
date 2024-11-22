@@ -37,3 +37,13 @@ variable "app_subnet_address_prefixes" {
   description = "App subnet address prefixes"
   type        = list(string)
 }
+
+variable "gateway_subnet_name" {
+  description = "Gateway subnet name"
+  type        = string
+}
+
+variable "gateway_subnet_address_prefixes" {
+  description = "Gateway subnet address prefixes"
+  type        = list(string)
+}

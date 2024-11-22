@@ -38,3 +38,10 @@ resource "azurerm_subnet" "app_subnet" {
   }
 }
 
+resource "azurerm_subnet" "gateway_subnet" {
+  name                 = var.gateway_subnet_name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.gateway_subnet_address_prefixes
+
+}
