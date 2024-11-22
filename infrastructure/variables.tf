@@ -5,7 +5,7 @@
 ################################################################################################
 
 variable "subscription_id" {
-  description = "Your Azure subscription ID. Run 'az account list --output table' to get it."
+  description = "Your Azure subscription ID. Run 'az account list --output table' or 'az login' to get it."
   type        = string
   sensitive   = true
 }
@@ -157,14 +157,24 @@ variable "docker_registry_url" {
 variable "app_service_name" {
   description = "App service name"
   type        = string
-  default     = "cloudcomputing24api"
+  default     = "cloudcomputing2024api"
 
 }
 
-#APP GATEWAY VARIABLES
+################################################################################################
+#                                                                                              #
+#                                     GATEWAY VARIABLES                                        #
+#                                                                                              #
+################################################################################################
 
 variable "public_ip_name" {
   description = "Public IP name"
   type        = string
   default     = "ipcloudcomputing24"
+}
+
+variable "application_gateway_name" {
+  description = "Application gateway name"
+  type        = string
+  default     = "cloudcomputing24gateway"
 }

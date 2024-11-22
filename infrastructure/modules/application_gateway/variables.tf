@@ -28,3 +28,12 @@ variable "gateway_subnet_id" {
   type        = string
 }
 
+variable "application_gateway_name" {
+  description = "Application gateway name"
+  type        = string
+}
+
+variable "app_service_fqdn" {
+  description = "App service FQDN"
+  type        = string
+}

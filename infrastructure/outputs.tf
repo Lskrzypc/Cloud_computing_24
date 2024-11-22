@@ -1,4 +1,8 @@
-# RESOURCE_GROUP OUTPUTS
+################################################################################################
+#                                                                                              #
+#                                         RG OUTPUTS                                           #
+#                                                                                              #
+################################################################################################
 output "resource_group_name" {
   value = module.resource_group.resource_group_name
 }
@@ -15,7 +19,11 @@ output "success_message_rg" {
   value = module.resource_group.success_message_rg
 }
 
-# VNET OUTPUTS
+################################################################################################
+#                                                                                              #
+#                                        VNET OUTPUTS                                          #
+#                                                                                              #
+################################################################################################
 output "vnet_name" {
   value = module.vnet.vnet_name
 }
@@ -40,7 +48,11 @@ output "success_message_vnet" {
   value = module.vnet.success_message_vnet
 }
 
-# BLOB OUTPUTS
+################################################################################################
+#                                                                                              #
+#                                       STORAGE OUTPUTS                                        #
+#                                                                                              #
+################################################################################################
 output "storage_container_name" {
   description = "The name of the container"
   value       = module.blob_storage.storage_container_name
@@ -54,10 +66,18 @@ output "storage_blob_name" {
 output "storage_account_id" {
   description = "The ID of the storage account"
   value       = module.blob_storage.storage_account_id
-
 }
 
-# DATABASE OUTPUTS
+output "storage_url" {
+  description = "The URL of the blob storage"
+  value       = module.blob_storage.storage_url
+}
+
+################################################################################################
+#                                                                                              #
+#                                         DB OUTPUTS                                           #
+#                                                                                              #
+################################################################################################
 output "postgresql_host" {
   value = module.database.postgresql_host
 }
@@ -80,11 +100,13 @@ output "postgresql_administrator_password" {
   sensitive = true
 }
 
-
-# APP SERVICE OUTPUTS
-
-# Blob storage Output
-output "storage_url" {
-  description = "The URL of the blob storage"
-  value       = module.blob_storage.storage_url
+################################################################################################
+#                                                                                              #
+#                                       API OUTPUTS                                            #
+#                                                                                              #
+################################################################################################
+output "app_service_fqdn" {
+  value = module.app_service.app_service_fqdn
 }
+
+
