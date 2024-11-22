@@ -51,6 +51,12 @@ output "storage_blob_name" {
   value       = module.blob_storage.storage_blob_name
 }
 
+output "storage_account_id" {
+  description = "The ID of the storage account"
+  value       = module.blob_storage.storage_account_id
+
+}
+
 # DATABASE OUTPUTS
 output "postgresql_host" {
   value = module.database.postgresql_host
