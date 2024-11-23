@@ -41,3 +41,10 @@ resource "azurerm_postgresql_flexible_server_database" "my_db" {
   name      = var.postgresql_db_name
   server_id = azurerm_postgresql_flexible_server.my_postgresql_server.id
 }
+
+resource "azurerm_postgresql_flexible_server_firewall_rule" "allow_webapp" {
+  name             = "AllowWebApp"
+  server_id        = azurerm_postgresql_flexible_server.my_postgresql_server.id
+  start_ip_address = "10.0.2.0" # Plage IP de l'application
+  end_ip_address   = "10.0.2.255"
+}

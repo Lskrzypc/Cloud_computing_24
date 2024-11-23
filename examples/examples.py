@@ -48,6 +48,8 @@ def connect_to_db():
     )
     return conn
 
+# Add this endpoint to create the table and insert data
+# Don't do this IRL x)
 @app.post("/data")
 def create_table():
     try:
@@ -62,6 +64,16 @@ def create_table():
         """
 
         cur.execute(create_table_query)
+        
+        insert_data_query = """
+        INSERT INTO examples (description)
+        SELECT 'Hello wooooorld!'
+        WHERE NOT EXISTS (
+            SELECT 1 FROM examples WHERE description = 'Hello world!'
+        );
+        """
+        cur.execute(insert_data_query)
+        
         conn.commit()
         cur.close()
         conn.close()
