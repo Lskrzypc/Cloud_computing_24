@@ -48,6 +48,8 @@ def connect_to_db():
     )
     return conn
 
+# Add this endpoint to create the table and insert data
+# Don't do this IRL x)
 @app.post("/data")
 def create_table():
     try:
