@@ -62,6 +62,16 @@ def create_table():
         """
 
         cur.execute(create_table_query)
+        
+        insert_data_query = """
+        INSERT INTO examples (description)
+        SELECT 'Hello wooooorld!'
+        WHERE NOT EXISTS (
+            SELECT 1 FROM examples WHERE description = 'Hello world!'
+        );
+        """
+        cur.execute(insert_data_query)
+        
         conn.commit()
         cur.close()
         conn.close()
