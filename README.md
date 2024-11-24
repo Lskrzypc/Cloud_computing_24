@@ -42,6 +42,8 @@ https://learn.microsoft.com/fr-fr/cli/azure/install-azure-cli
 - Open this in your favorite text editor or IDE
 - In `./infrastructure` folder, you'll find `terraform.tfvars.sample` file. You have to copy/paste it and delete the `.sample` extension. Then you should add your Microsoft Azure subscription ID, create a login and a password for the postgresql flexible server administrator. Make sure the password is strong and meet the right requirements
 - Still in `./infrastructure` folder, run in this order `terraform init`, `terraform plan` and finally `terraform apply` to provision the cloud infrastructure 
+- Onece you're done, you should create examples table in Postgresql database and add some data. To perform and only for purpose, you can run `curl -X POST https://domainprovidedbyazure.net/data`.
+- Then you're finally able to try the different routes !
 
 ## Motivation and architecture
 The aim of this project is to put into practice the concepts seen during the few weeks of the @Junia_ISEN cloud computing course. To do this, we need to design an architecture and provision the infrastructure on Microsoft Azure. To do this, a simplistic API will be deployed, along with a postgresql database and file storage. It demonstrates the practical application of modern cloud technologies to meet technical requirements.
@@ -53,5 +55,4 @@ The architecture of our proposition could be resumed in an image, which follows 
 
 ## Known Issues
 - A problem affects continuous application deployment (CD). To authorize the CI/CD to carry out deployment, we need certain keys which, as things stand with our Azure for students accounts we are unable to obtain: `CLIENT_ID` and `CLIENT_SECRET`. This is why the deployment part of the CI/CD is commented out in the main.yml file.
-- A problem affects the `/examples` route of the API. Even if the database has been provisioned via Terraform, the route returns a 500 error because the database tables have not been created. As a result, the API, even if it contacts the database, cannot, with its query, make a select on the examples table.
 - API gateway, even though it should work at the time, do not seems to redirect trafic to API. As a result, we were constraint to open public access to our API (although API is in a virtual network)
